@@ -52,10 +52,6 @@ class GoFishTest < Test::Unit::TestCase
   
 private
   
-  def dummy_object
-    Object.new
-  end
-  
   def assert_positive_response(response)
     assert_equal @positive_response, response
   end
