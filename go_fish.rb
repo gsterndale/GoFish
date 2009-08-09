@@ -29,7 +29,7 @@ class GoFish
   end
   
   def self.fish_today?
-    fishing_forecaster.fishibility >= 0.5 ? positive_response : negative_response
+    fishing_forecaster.likelihood_of_catch >= 0.5 ? positive_response : negative_response
   end
   
 end
