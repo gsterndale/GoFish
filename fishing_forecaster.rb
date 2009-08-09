@@ -11,4 +11,9 @@ class FishingForecaster
     @@weather_forecaster = forecaster
   end
   
+  def self.likelihood_of_catch
+    likelihood_of_rain = weather_forecaster.likelihood_of_rain
+    1-Math.sqrt(likelihood_of_rain)
+  end
+  
 end
