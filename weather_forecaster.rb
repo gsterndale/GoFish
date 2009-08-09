@@ -1,0 +1,3 @@
+class WeatherForecaster
+  
+end
