@@ -41,6 +41,14 @@ class FishingForecasterTest < Test::Unit::TestCase
     assert_equal 0.0, FishingForecaster.likelihood_of_catch
   end
   
+  def test_likelihood_of_catch_calculated_with_sqrt_rain
+    rain      = 0.5
+    sqrt_rain = 0.707106781186548
+    FishingForecaster.weather_forecaster = stub(:likelihood_of_rain => rain)
+    Math.expects(:sqrt).with(rain).returns(sqrt_rain)
+    likelihood_of_catch = FishingForecaster.likelihood_of_catch
+  end
+  
 private
 
 end
