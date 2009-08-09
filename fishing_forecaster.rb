@@ -1,9 +1,10 @@
 class FishingForecaster
   
-  @@weather_forecaster  = ""
+  @@default_weather_forecaster  = ""
+  @@weather_forecaster          = @@default_weather_forecaster
   
   def self.weather_forecaster
-    @@weather_forecaster
+    @@weather_forecaster ||= @@default_weather_forecaster
   end
   
   def self.weather_forecaster=(forecaster)

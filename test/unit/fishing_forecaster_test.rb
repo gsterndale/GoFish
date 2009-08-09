@@ -6,6 +6,12 @@ class FishingForecasterTest < Test::Unit::TestCase
   end
   
   def teardown
+    FishingForecaster.weather_forecaster = nil
+    assert_not_nil FishingForecaster.weather_forecaster
+  end
+  
+  def test_fishing_forecaster_default
+    assert_not_nil FishingForecaster.weather_forecaster
   end
   
   def test_weather_forecaster_getter_setter
