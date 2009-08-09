@@ -3,12 +3,23 @@ require File.dirname(__FILE__) + '/../test_helper'
 class GoFishTest < Test::Unit::TestCase
   
   def setup
-    assert @positive_response = GoFish.positive_response
-    assert @negative_response = GoFish.negative_response
-    assert_not_equal @positive_response, @negative_response
   end
   
   def teardown
+    GoFish.fishing_forecaster = nil
+    assert_not_nil GoFish.fishing_forecaster
+  end
+  
+  def test_positive_response_getter
+    assert_not_nil GoFish.positive_response
+  end
+  
+  def test_negative_response_getter
+    assert_not_nil GoFish.negative_response
+  end
+  
+  def test_positive_and_negative_response_differ
+    assert_not_equal GoFish.positive_response, GoFish.negative_response
   end
   
   def test_lt_50_percent_likelihood_of_catch
@@ -29,6 +40,10 @@ class GoFishTest < Test::Unit::TestCase
     assert_positive_response GoFish.fish_today?
   end
   
+  def test_fishing_forecaster_default
+    assert_not_nil GoFish.fishing_forecaster
+  end
+  
   def test_fishing_forecaster_getter_setter
     fishing_forecaster = dummy_object
     assert_not_equal fishing_forecaster, GoFish.fishing_forecaster
@@ -36,28 +51,14 @@ class GoFishTest < Test::Unit::TestCase
     assert_equal fishing_forecaster, GoFish.fishing_forecaster
   end
   
-  def test_positive_response_getter_setter
-    response = 'yes'
-    assert_not_equal response, GoFish.positive_response
-    GoFish.positive_response = response
-    assert_equal response, GoFish.positive_response
-  end
-  
-  def test_negative_response_getter_setter
-    response = 'no'
-    assert_not_equal response, GoFish.negative_response
-    GoFish.negative_response = response
-    assert_equal response, GoFish.negative_response
-  end
-  
 private
   
   def assert_positive_response(response)
-    assert_equal @positive_response, response
+    assert_equal GoFish.positive_response, response
   end
   
   def assert_negative_response(response)
-    assert_equal @negative_response, response
+    assert_equal GoFish.negative_response, response
   end
   
 end
