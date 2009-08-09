@@ -1,8 +1,10 @@
+require 'fishing_forecaster'
+
 class GoFish
   
   @@positive_response           = "Go fish"
   @@negative_response           = "Hack"
-  @@default_fishing_forecaster  = ""
+  @@default_fishing_forecaster  = FishingForecaster
   @@fishing_forecaster          = @@default_fishing_forecaster
   
   def self.positive_response

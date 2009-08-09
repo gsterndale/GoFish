@@ -41,7 +41,7 @@ class GoFishTest < Test::Unit::TestCase
   end
   
   def test_fishing_forecaster_default
-    assert_not_nil GoFish.fishing_forecaster
+    assert_equal FishingForecaster, GoFish.fishing_forecaster
   end
   
   def test_fishing_forecaster_getter_setter
