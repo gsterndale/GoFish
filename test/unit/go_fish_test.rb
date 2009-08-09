@@ -22,19 +22,19 @@ class GoFishTest < Test::Unit::TestCase
     assert_not_equal GoFish.positive_response, GoFish.negative_response
   end
   
-  def test_lt_50_percent_likelihood_of_catch
+  def test_fish_today_lt_50_percent_likelihood_of_catch
     likelihood_of_catch = 0.49
     GoFish.fishing_forecaster = stub(:likelihood_of_catch => likelihood_of_catch)
     assert_negative_response GoFish.fish_today?
   end
   
-  def test_eq_50_percent_likelihood_of_catch
+  def test_fish_today_eq_50_percent_likelihood_of_catch
     likelihood_of_catch = 0.50
     GoFish.fishing_forecaster = stub(:likelihood_of_catch => likelihood_of_catch)
     assert_positive_response GoFish.fish_today?
   end
   
-  def test_gt_50_percent_likelihood_of_catch
+  def test_fish_today_gt_50_percent_likelihood_of_catch
     likelihood_of_catch = 0.51
     GoFish.fishing_forecaster = stub(:likelihood_of_catch => likelihood_of_catch)
     assert_positive_response GoFish.fish_today?
