@@ -1,6 +1,8 @@
+require 'weather_forecaster'
+
 class FishingForecaster
   
-  @@default_weather_forecaster  = ""
+  @@default_weather_forecaster  = WeatherForecaster
   @@weather_forecaster          = @@default_weather_forecaster
   
   def self.weather_forecaster
