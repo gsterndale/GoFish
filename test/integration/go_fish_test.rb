@@ -19,14 +19,12 @@ class GoFishTest < Test::Unit::TestCase
   end
   
   def test_fish_today_pop_eq_25
-    pop = 25
-    install_weather_service_uri_mocks(pop)
+    install_weather_service_uri_mocks(25)
     assert_equal GoFish.positive_response, GoFish.fish_today?
   end
   
   def test_fish_today_pop_eq_26
-    pop = 26
-    install_weather_service_uri_mocks(pop)
+    install_weather_service_uri_mocks(26)
     assert_equal GoFish.negative_response, GoFish.fish_today?
   end
   
