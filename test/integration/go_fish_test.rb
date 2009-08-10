@@ -10,35 +10,27 @@ class GoFishTest < Test::Unit::TestCase
   
   def test_fish_today_pop_eq_0
     install_weather_service_uri_mocks(0)
-    assert_positive_response GoFish.fish_today?
+    assert_equal GoFish.positive_response, GoFish.fish_today?
   end
     
   def test_fish_today_pop_eq_100
     install_weather_service_uri_mocks(100)
-    assert_negative_response GoFish.fish_today?
+    assert_equal GoFish.negative_response, GoFish.fish_today?
   end
   
   def test_fish_today_pop_eq_25
     pop = 25
     install_weather_service_uri_mocks(pop)
-    assert_positive_response GoFish.fish_today?
+    assert_equal GoFish.positive_response, GoFish.fish_today?
   end
   
   def test_fish_today_pop_eq_26
     pop = 26
     install_weather_service_uri_mocks(pop)
-    assert_negative_response GoFish.fish_today?
+    assert_equal GoFish.negative_response, GoFish.fish_today?
   end
   
 private
-  
-  def assert_positive_response(response)
-    assert_equal GoFish.positive_response, response
-  end
-  
-  def assert_negative_response(response)
-    assert_equal GoFish.negative_response, response
-  end
   
   def install_weather_service_uri_mocks(pop)
     uri = mock()
