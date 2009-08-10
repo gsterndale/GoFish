@@ -15,7 +15,13 @@ class FishingForecaster
   
   def self.likelihood_of_catch
     likelihood_of_rain = weather_forecaster.likelihood_of_rain
-    1-Math.sqrt(likelihood_of_rain)
+    calculate_likelihood_of_catch(likelihood_of_rain)
+  end
+  
+protected
+  
+  def self.calculate_likelihood_of_catch(rain)
+    1-Math.sqrt(rain)
   end
   
 end
