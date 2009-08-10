@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'test/unit'
 require 'mocha'
+require 'erb'
 require 'ruby-debug'
 
 require File.dirname(__FILE__) + '/../go_fish'
