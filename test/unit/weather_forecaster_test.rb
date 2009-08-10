@@ -8,16 +8,22 @@ class WeatherForecasterTest < Test::Unit::TestCase
   def teardown
   end
   
-  def test_likelihood_of_rain_pop_0
+  def test_likelihood_of_rain_pop_eq_0
     install_weather_service_uri_mocks(0)
     assert_equal 0, WeatherForecaster.likelihood_of_rain
   end
     
-  def test_likelihood_of_rain_pop_100
+  def test_likelihood_of_rain_pop_eq_100
     install_weather_service_uri_mocks(100)
     assert_equal 1.0, WeatherForecaster.likelihood_of_rain
   end
   
+  def test_likelihood_of_rain_pop_gt_0_lt_100
+    pop = 47
+    install_weather_service_uri_mocks(pop)
+    assert_equal pop/100.0, WeatherForecaster.likelihood_of_rain
+  end
+
 private
   
   def install_weather_service_uri_mocks(pop)
