@@ -48,7 +48,5 @@ class FishingForecasterTest < Test::Unit::TestCase
     Math.expects(:sqrt).with(rain).returns(sqrt_rain)
     likelihood_of_catch = FishingForecaster.likelihood_of_catch
   end
-  
-private
 
 end
