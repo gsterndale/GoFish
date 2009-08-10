@@ -1,4 +1,4 @@
-require 'fishing_forecaster'
+require File.dirname(__FILE__) + '/fishing_forecaster'
 
 class GoFish
   

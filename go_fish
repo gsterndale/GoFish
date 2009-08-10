@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require File.dirname(__FILE__) + '/go_fish'
+require File.dirname(__FILE__) + '/lib/go_fish'
 
 puts GoFish.fish_today?

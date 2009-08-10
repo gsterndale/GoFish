@@ -1,4 +1,4 @@
-require 'weather_forecaster'
+require File.dirname(__FILE__) + '/weather_forecaster'
 
 class FishingForecaster
   
