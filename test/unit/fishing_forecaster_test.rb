@@ -55,6 +55,8 @@ class FishingForecasterTest < Test::Unit::TestCase
     # setup Test Double: Mock Object, set expectation with specific arguements and return value
     Math.expects(:sqrt).with(rain).returns(sqrt_rain)
     likelihood_of_catch = FishingForecaster.likelihood_of_catch
+    # Notice that verification (assertions) are not necessary.
+    # If the mock object's expectations are not met, it will cause the test to fail.
   end
 
 private
